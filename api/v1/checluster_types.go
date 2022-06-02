@@ -25,6 +25,7 @@ import (
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/labels"
+	dw "github.com/devfile/api/v2/pkg/apis/workspaces/v1alpha2"
 )
 
 // +k8s:openapi-gen=true
@@ -360,6 +361,12 @@ type CheClusterSpecServer struct {
 	WorkspacePodNodeSelector map[string]string `json:"workspacePodNodeSelector,omitempty"`
 	// The pod tolerations put on the workspace pods to limit where the workspace pods can run.
 	WorkspacePodTolerations []corev1.Toleration `json:"workspacePodTolerations,omitempty"`
+	// The default editor to workspace create with.
+	// +optional
+	DefaultEditor string `json:"defaultEditor,omitempty"`
+	// The default components to workspace create with.
+    // +optional
+	DefaultComponents []dw.BaseComponent `json:"defaultComponents,omitempty"`
 }
 
 // +k8s:openapi-gen=true

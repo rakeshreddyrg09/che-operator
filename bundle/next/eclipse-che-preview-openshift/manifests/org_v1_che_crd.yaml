@@ -1024,6 +1024,17 @@ spec:
                     useInternalClusterSVCNames:
                       description: Deprecated in favor of `disableInternalClusterSVCNames`.
                       type: boolean
+                    workspaceDefaultComponents:
+                      description: The default components to workspace create with.
+                      items:
+                        description: 'DevWorkspace component: Anything that will bring
+                          additional features / tooling / behaviour / context to the
+                          devworkspace, in order to make working in it easier.'
+                        type: object
+                      type: array
+                    workspaceDefaultEditor:
+                      description: The default editor to workspace create with.
+                      type: string
                     workspaceNamespaceDefault:
                       description: Defines Kubernetes default namespace in which user's
                         workspaces are created for a case when a user does not override

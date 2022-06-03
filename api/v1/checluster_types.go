@@ -21,11 +21,11 @@ import (
 	"strings"
 
 	chev1alpha1 "github.com/che-incubator/kubernetes-image-puller-operator/api/v1alpha1"
-	v2alpha1 "github.com/eclipse-che/che-operator/api/v2alpha1"
+	devfile "github.com/devfile/api/v2/pkg/apis/workspaces/v1alpha2"
+	chev2alpha1 "github.com/eclipse-che/che-operator/api/v2alpha1"
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/labels"
-	dw "github.com/devfile/api/v2/pkg/apis/workspaces/v1alpha2"
 )
 
 // +k8s:openapi-gen=true
@@ -363,10 +363,10 @@ type CheClusterSpecServer struct {
 	WorkspacePodTolerations []corev1.Toleration `json:"workspacePodTolerations,omitempty"`
 	// The default editor to workspace create with.
 	// +optional
-	DefaultEditor string `json:"defaultEditor,omitempty"`
+	WorkspaceDefaultEditor string `json:"workspaceDefaultEditor,omitempty"`
 	// The default components to workspace create with.
-    // +optional
-	DefaultComponents []dw.BaseComponent `json:"defaultComponents,omitempty"`
+	// +optional
+	WorkspaceDefaultComponents []devfile.BaseComponent `json:"workspaceDefaultComponents,omitempty"`
 }
 
 // +k8s:openapi-gen=true
@@ -801,7 +801,7 @@ type CheClusterStatus struct {
 	HelpLink string `json:"helpLink,omitempty"`
 	// The status of the Devworkspace subsystem
 	// +optional
-	DevworkspaceStatus v2alpha1.CheClusterStatusV2Alpha1 `json:"devworkspaceStatus,omitempty"`
+	DevworkspaceStatus chev2alpha1.CheClusterStatusV2Alpha1 `json:"devworkspaceStatus,omitempty"`
 }
 
 // The `CheCluster` custom resource allows defining and managing a Che server installation

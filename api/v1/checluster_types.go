@@ -366,7 +366,7 @@ type CheClusterSpecServer struct {
 	WorkspaceDefaultEditor string `json:"workspaceDefaultEditor,omitempty"`
 	// The default components to workspace create with.
 	// +optional
-	WorkspaceDefaultComponents []devfile.BaseComponent `json:"workspaceDefaultComponents,omitempty"`
+	WorkspaceDefaultComponents []devfile.Component `json:"workspaceDefaultComponents,omitempty"`
 }
 
 // +k8s:openapi-gen=true
